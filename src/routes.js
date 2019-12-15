@@ -18,7 +18,7 @@ class Routes extends Component {
           <RouteWithLayout component={Accountpage} exact layout={SidebarNavbar} path="/account" />
           <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/product" />
           <RouteWithLayout component={PostManager} exact layout={SidebarNavbar} path="/post" />
-          <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/feedback" />
+          {/* <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/feedback" /> */}
           <Route path="/login" exact component={Login} />
           <RouteWithLayout component={NotFoundpage} exact layout={SidebarNavbar} path="/not-found" />
           <Redirect to="/not-found" />

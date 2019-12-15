@@ -46,10 +46,10 @@ class Login extends Component {
     render(){
       return (
         <div className="col-md-6 login-form-1">
-            <h3>Xin chào</h3>
+            {/* <h3>Xin chào</h3> */}
             <form className="row" onSubmit={this.handleSubmit}>
                 <div className="form-group col-md-4">
-                    <h3>{this.state.username}</h3>
+                    {/* <h3>{this.state.username}</h3> */}
                 </div>
             </form>
         </div>

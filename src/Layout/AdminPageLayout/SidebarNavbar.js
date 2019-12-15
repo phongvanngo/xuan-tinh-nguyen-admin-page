@@ -39,6 +39,15 @@ class SidebarNavbar extends Component {
         <nav id="sidebar" className={this.state.isDisplaySidebar ? "sidebarActive" : "sidebarDeactive"} >
           <div className="sidebar-header">
             <h4>Xuân tình nguyện 2019</h4>
+            <br/>
+            <h4 style ={{color:"yellow"}} ><i style ={{marginRight:"10px"}}class="fas fa-user-circle"> </i>{this.props.userName}</h4>
+            <ul class="list-unstyled CTAs">
+            <NavLink to="/feedback" onClick={() => { if (window.confirm('Bạn có muốn đăng xuất?')) this.logOut() }} >
+              <li>
+                <a class="download">Đăng xuất</a>
+              </li>
+            </NavLink>
+          </ul>
           </div>
 
           <ul className="list-unstyled components">
@@ -87,13 +96,7 @@ class SidebarNavbar extends Component {
             </NavLink>
           </ul>
 
-          <ul class="list-unstyled CTAs">
-            <NavLink to="/feedback" onClick={() => { if (window.confirm('Bạn có muốn đăng xuất?')) this.logOut() }} >
-              <li>
-                <a class="download">Đăng xuất</a>
-              </li>
-            </NavLink>
-          </ul>
+          
         </nav>
 
         <nav className="navbar navbar-default ">
@@ -104,6 +107,7 @@ class SidebarNavbar extends Component {
                 <span></span>
               </button>
               <h3 style={{ float: 'left', marginLeft: 10 }}>{this.props.CurrentPage}</h3>
+              
             </div>
           </div>
         </nav>
@@ -126,9 +130,9 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProp = state => {
   return {
-    CurrentPage: state.currentPage
+    CurrentPage: state.currentPage,
+    userName: state.loginUser.username
   }
-
 }
 
 

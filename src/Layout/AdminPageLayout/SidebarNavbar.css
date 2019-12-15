@@ -117,10 +117,11 @@ a:focus {
 #sidebar .sidebar-header {
   padding: 20px;
   background: #6d7fcc;
+  padding-bottom: 0px;
 }
 
 #sidebar ul.components {
-  padding: 20px 0;
+  padding: 0 0;
 
 
 }
@@ -179,7 +180,7 @@ ul ul a {
 
 ul.CTAs {
   
-  padding: 0px 10px 10px 10px;
+  padding: 0px 0px 0px 0px;
 }
 
 ul.CTAs a {
@@ -187,7 +188,7 @@ ul.CTAs a {
   font-size: 0.9em !important;
   display: block;
   border-radius: 5px;
-  margin-bottom: 5px;
+ 
   color:black
 }
 
