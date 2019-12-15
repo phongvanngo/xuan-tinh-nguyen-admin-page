@@ -111,6 +111,13 @@ export const deletePost = (id) => {
   }
 }
 
+export const changePage =(pageName) => {
+  return {
+    type:Types.CHANGE_PAGE,
+    pageName
+  }
+}
+
 //hoang vien duy-----------------------------------------------------------------
 export const addUser = user => {
   return {

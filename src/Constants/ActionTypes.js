@@ -9,6 +9,7 @@ export const FETCH_POSTS_DATA = "FETCH_POSTS_DATA"
 export const EDIT_POST = "EDIT_POST"
 export const SET_NULL ="SET_NULL"
 export const DELETE_POST ="DELETE_POST"
+export const CHANGE_PAGE="CHANGE_PAGE"
 
 
 //hoang vien duy--------------------------------------
