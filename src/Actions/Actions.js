@@ -307,7 +307,7 @@ export const loginRequest = user => {
           localStorage.setItem("accessToken", response.data.token);
           localStorage.setItem("permission", response.data.userInfo);
           dispatch(loginUser(user));
-          console.log(response);
+          // console.log(response);
         }
       })
       .catch( err => {
