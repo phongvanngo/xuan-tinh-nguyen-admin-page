@@ -121,197 +121,180 @@ export const changePage =(pageName) => {
 //hoang vien duy-----------------------------------------------------------------
 export const addUser = user => {
   return {
-    type: Types.ADD_USER,
-    user
+      type: Types.ADD_USER,
+      user
   }
 }
 
 export const addUserRequest = user => {
   return dispatch => {
-    return callApi('admin/user', 'POST', user)
-      .then(response => {
-        if (response.status === 200) {
-          dispatch(actFetchUsersRequest());
-          dispatch(showModalSuccess('Thêm thành công'));
-          dispatch(addUser(user));
-        }
-        else {
-          console.log(response);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        dispatch(showModalSuccess('Thêm thất bại'));
-      });
+      return api.post('admin/user', user)
+          .then( response => {
+              if (response.status === 200){
+                  dispatch(actFetchUsersRequest());
+                  dispatch(showModalSuccess('Thêm thành công'));
+                  dispatch(addUser(user));
+              }
+              else {
+                  console.log(response);
+              }
+          })
+          .catch ( error => {
+              console.log(error);
+              dispatch(showModalSuccess('Thêm thất bại'));
+          }); 
   }
 }
 
 export const delUser = user => {
   return {
-    type: Types.DEL_USER,
-    user
+      type: Types.DEL_USER,
+      user
   }
 }
 
 export const delUserRequest = user => {
   return (dispatch) => {
-    return callApi(`admin/user/${user._id}`, 'DELETE', null)
-      .then(response => {
-        if (response.status === 200) {
-          dispatch(delUser(user));
-          dispatch(showModalSuccess('Xoá thành công'));
-        }
-        else {
-          dispatch(showModalSuccess('Xoá thất bại'));
-        }
+      return api.delete(`admin/user/${user._id}`)
+      .then( response => {
+          if (response.status === 200){
+              dispatch(delUser(user));
+              dispatch(showModalSuccess('Xoá thành công'));
+          }
+          else {
+              dispatch(showModalSuccess('Xoá thất bại'));
+          }
       })
-      .catch(err => {
-        console.log(err);
+      .catch( err => {
+          console.log(err);
       })
   }
 }
 
 export const getUsers = users => {
   return {
-    type: Types.GET_USER,
-    users
+      type: Types.GET_USER,
+      users
   }
 }
 
 export const actFetchUsersRequest = () => {
   return dispatch => {
-    return callApi('admin/user', 'GET', null)
-      .then(response => {
+      return api.get('admin/user')
+      .then( response => {
         dispatch(getUsers(response.data));
-      }).catch(error => {
-        console.log(error);
-        alert('lỗi kết nối')
+      })
+      .catch( err => {
+        console.log(err);
+        alert("Khong co quyen truy cap");
       });
   }
 }
 
 
 export const showForm = () => {
-  return {
-    type: Types.SHOW_FORM
-  }
+return {
+  type: Types.SHOW_FORM
+}
 }
 
 export const toggleForm = () => {
-  return {
-    type: Types.TOGGLE_FORM
-  }
+return {
+  type: Types.TOGGLE_FORM
+}
 }
 
 export const showModalSuccess = message => {
   return {
-    type: Types.SHOW_MODAL_SUCCESS,
-    message
+      type: Types.SHOW_MODAL_SUCCESS,
+      message
   }
 }
 
 export const addProduct = product => {
   return {
-    type: Types.ADD_PRODUCT,
-    product
+      type: Types.ADD_PRODUCT,
+      product
   }
 }
 
 export const addProductRequest = product => {
   return dispatch => {
-    return callApi('product', 'POST', {
-      tensp: product.tensp,
-      mota: product.mota,
-      gia: product.gia,
-      ngaysx: product.ngaysx,
-      hansd: product.hansd
-    })
-      .then(response => {
-        if (response.status === 200) {
-          dispatch(actFetchProductsRequest());
-          dispatch(showModalSuccess('Thêm thành công'));
-          dispatch(addProduct(product));
-        }
-      }).catch(error => {
-        console.log(error);
-        alert('lỗi kết nối')
-      });
+      return api.post('product', product)
+        .then( response => {
+            if (response.status === 200){
+              dispatch(actFetchProductsRequest());
+              dispatch(showModalSuccess('Thêm thành công'));
+              dispatch(addProduct(product));
+            }
+          }); 
   }
 }
 
 export const editProduct = product => {
   return {
-    type: Types.EDIT_PRODUCT,
-    product
+      type: Types.EDIT_PRODUCT,
+      product
   }
 }
 
 export const editProductRequest = product => {
   return (dispatch) => {
-    return callApi(`product/${product._id}`, 'PATCH', {
-      tensp: product.tensp,
-      mota: product.mota,
-      gia: product.gia,
-      ngaysx: product.ngaysx,
-      hansd: product.hansd
-    })
-      .then(response => {
-        if (response.status === 200)
-          dispatch(editProduct(product));
-        dispatch(showModalSuccess('Sửa thành công'));
+      return api.patch(`product/${product._id}`, product)
+      .then( response => {
+          if (response.status === 200){
+              dispatch(editProduct(product));
+              dispatch(showModalSuccess('Sửa thành công'));
+          }
       })
-      .catch(error => {
-        console.log(error);
-        alert('lỗi kết nối')
-      });
+      .catch( err => {
+          console.log(err);
+      })
   }
 }
 
 export const delProduct = product => {
   return {
-    type: Types.DEL_PRODUCT,
-    product
+      type: Types.DEL_PRODUCT,
+      product
   }
 }
 
 export const delProductRequest = product => {
   return (dispatch) => {
-    return callApi(`product/${product._id}`, 'DELETE', null)
-      .then(response => {
-        if (response.status === 200)
-          dispatch(delProduct(product));
-        dispatch(showModalSuccess('Xoá thành công'));
+      return api.delete(`product/${product._id}`)
+      .then( response => {
+          if (response.status === 200){
+              dispatch(delProduct(product));
+              dispatch(showModalSuccess('Xoá thành công'));
+          }
       })
-      .catch(error => {
-        console.log(error);
-        alert('lỗi kết nối')
-      });
+      .catch( err => {
+          console.log(err);
+      })
   }
 }
 
 export const getProducts = products => {
   return {
-    type: Types.GET_PRODUCTS,
-    products
+      type: Types.GET_PRODUCTS,
+      products
   }
 }
 
 export const actFetchProductsRequest = () => {
   return dispatch => {
-    return callApi('product', 'GET', null)
-      .then(response => {
+      return api.get('product')
+      .then( response => {
         dispatch(getProducts(response.data));
-      }).catch(error => {
-        console.log(error);
-        alert('lỗi kết nối')
       });
   }
 }
 
 export const isSelected = product => {
   return {
-    type: Types.IS_SELECTED,
-    product
+      type: Types.IS_SELECTED,
+      product
   }
 }
 
@@ -321,7 +304,8 @@ export const loginRequest = user => {
       .then( response => {
         if (response.status === 200){
           dispatch(isAuthenticated());
-          localStorage.setItem("accessToken", response.data.token)
+          localStorage.setItem("accessToken", response.data.token);
+          localStorage.setItem("permission", response.data.userInfo);
           dispatch(loginUser(user));
           console.log(response);
         }
