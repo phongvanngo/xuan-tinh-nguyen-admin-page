@@ -10,6 +10,7 @@ import productSelected from './ProductSelected';
 import isAuthenticated from './authenticated';
 import loginUser from './login';
 import currentPage from './CurrentPage';
+import menus from './menus';
 
 const todoApp = combineReducers({
   posts,
@@ -22,7 +23,8 @@ const todoApp = combineReducers({
   productSelected,
   isAuthenticated,
   loginUser,
-  currentPage
+  currentPage,
+  menus
 })
 
 export default todoApp;

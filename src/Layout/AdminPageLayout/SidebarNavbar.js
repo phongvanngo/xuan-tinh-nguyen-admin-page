@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './SidebarNavbar.css';
 import { connect } from 'react-redux';
 import * as actions from './../../Actions/Actions';
+import Menus from './Menus';
 
 class SidebarNavbar extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class SidebarNavbar extends Component {
             <ul class="list-unstyled CTAs">
             <NavLink to="/feedback" onClick={() => { if (window.confirm('Bạn có muốn đăng xuất?')) this.logOut() }} >
               <li>
-                <a class="download">Đăng xuất</a>
+                <a href="#/" className="download">Đăng xuất</a>
               </li>
             </NavLink>
           </ul>
@@ -52,51 +53,8 @@ class SidebarNavbar extends Component {
 
           <ul className="list-unstyled components">
             <p> <h5>Chức năng chính</h5></p>
-
-            <NavLink to="/product" onClick={()=>this.props.onChangePage('Quản lý sản phẩm')}>
-              <li>
-                <a>Quản lý sản phẩm</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/account" onClick={()=>this.props.onChangePage('Quản lý tài khoản')}>
-              <li>
-                <a>Quản lý tài khoản</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/client"onClick={()=>this.props.onChangePage('Quản lý khách hàng')} >
-              <li>
-                <a>Quản lý khách hàng</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/bill" onClick={()=>this.props.onChangePage('Quản lý chi tiết hóa đơn')}>
-              <li>
-                <a>Quản lý chi tiết hóa đơn</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/team" onClick={()=>this.props.onChangePage('Quản lý đội hình')}>
-              <li>
-                <a>Quản lý đội hình</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/post" onClick={()=>this.props.onChangePage('Quản lý bài viết')}>
-              <li>
-                <a>Quản lý bài viết</a>
-              </li>
-            </NavLink>
-
-            <NavLink to="/feedback" onClick={()=>this.props.onChangePage('Hộp thư góp ý')} >
-              <li>
-                <a>Hộp thư góp ý</a>
-              </li>
-            </NavLink>
+            <Menus/>
           </ul>
-
-          
         </nav>
 
         <nav className="navbar navbar-default ">

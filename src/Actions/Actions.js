@@ -167,6 +167,7 @@ export const delUserRequest = user => {
       })
       .catch( err => {
           console.log(err);
+          alert('Không thể thực hiện');
       })
   }
 }
@@ -227,7 +228,11 @@ export const addProductRequest = product => {
               dispatch(showModalSuccess('Thêm thành công'));
               dispatch(addProduct(product));
             }
-          }); 
+          })
+        .catch( err => {
+          console.log(err);
+          alert('Không thể thực hiện');
+        })
   }
 }
 
@@ -249,6 +254,7 @@ export const editProductRequest = product => {
       })
       .catch( err => {
           console.log(err);
+          alert('Không thể thực hiện');
       })
   }
 }
@@ -271,6 +277,7 @@ export const delProductRequest = product => {
       })
       .catch( err => {
           console.log(err);
+          alert('Không thể thực hiện');
       })
   }
 }
@@ -305,13 +312,13 @@ export const loginRequest = user => {
         if (response.status === 200){
           dispatch(isAuthenticated());
           localStorage.setItem("accessToken", response.data.token);
-          localStorage.setItem("permission", response.data.userInfo);
           dispatch(loginUser(user));
-          // console.log(response);
+          dispatch(showMenus(response.data.userInfo))
         }
       })
       .catch( err => {
           console.log(err); 
+          alert('Không thể thực hiện');
       })
   }
 }
@@ -332,5 +339,12 @@ export const loginUser = user => {
 export const isntAuthenticated = () => {
   return {
       type: Types.LOGOUT_USER
+  }
+}
+
+export const showMenus = menus => {
+  return {
+      type: Types.SHOW_MENUS,
+      menus
   }
 }
