@@ -1,4 +1,3 @@
-import callApi from './../Utils/apiCaller';
 import * as Types from '../Constants/ActionTypes'
 import api from "../service/api";
 
@@ -15,7 +14,7 @@ export const openPostForm = () => {
 }
 export const fetchPostsDataRequest = () => {
   return (dispatch) => {
-    return callApi('post', 'GET', null).then(res => {
+    return api.get('post').then(res => {
       dispatch(fetchPostsData(res.data.posts))
     }).catch(error => {
       console.log(error);
@@ -40,7 +39,7 @@ export const addPost = (post, id) => {
 
 export const addPostRequest = (postData) => {
   return (dispatch) => {
-    return callApi('post', 'POST', postData).then(res => {
+    return api.post('post',postData).then(res => {
       dispatch(addPost(postData, res.data.info._id))
     }).catch(error => {
       console.log(error);
@@ -72,7 +71,7 @@ export const updatePostRequest = (postData) => {
     }
   ]
   return (dispatch) => {
-    return callApi(`post/${postData.id}`, 'PATCH', postDataChange).then(res => {
+    return api.patch(`post/${postData.id}`,postDataChange).then(res => {
       dispatch(updatePost(postData))
     }).catch(error => {
       console.log(error);
@@ -95,7 +94,7 @@ export const set_isPostEditing_null = () => {
 
 export const deletePostRequest = (id) => {
   return (dispatch) => {
-    return callApi(`post/${id}`, 'DELETE', null).then(res => {
+    return api.delete(`post/${id}`).then(res => {
       dispatch(deletePost(id))
     }).catch(error => {
       console.log(error);
