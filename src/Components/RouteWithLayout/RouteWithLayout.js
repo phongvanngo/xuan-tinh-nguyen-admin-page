@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-const PrivateRoute = ({ component, isAuthenticated }) => {
+const PrivateRoute = ({ component, isAuthenticated, authenticated}) => {
   return (
     <Route
       render={props => {
-        return isAuthenticated ? (
+        return isAuthenticated || authenticated ==='true' ? (
           React.createElement(component, props)
         ) : (
           <Redirect
@@ -51,6 +51,7 @@ class RouteWithLayout extends Component {
         />
         <PrivateRoute 
           isAuthenticated={this.props.isAuthenticated}  
+          authenticated={localStorage.getItem("authenticated")}
           component={matchProps => (  
             <Layout>
               <div id="board">

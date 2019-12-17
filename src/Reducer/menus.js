@@ -1,6 +1,6 @@
 import * as types from './../Constants/ActionTypes';
 
-var initialState = [];
+var initialState = JSON.parse(localStorage.getItem("menus"));
 
 const todoApp = (state = initialState, action) => {
     switch(action.type){
@@ -48,6 +48,7 @@ const todoApp = (state = initialState, action) => {
                     name: 'Hộp thư góp ý'
                 });
             }
+            localStorage.setItem("menus", JSON.stringify(state));
            return state;
         default: return state;
     }

@@ -9,6 +9,10 @@ const todoApp = (state = initialState, action) => {
            return true;
         case types.LOGOUT_USER:
             state = false;
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("authenticated");
+            localStorage.removeItem("menus");
+            localStorage.removeItem("username");
             return false;
         default: return state;
     }

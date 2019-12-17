@@ -18,7 +18,7 @@ export const fetchPostsDataRequest = () => {
       dispatch(fetchPostsData(res.data.posts))
     }).catch(error => {
       console.log(error);
-      alert('lỗi kết nối')
+      alert('lỗi kết nối');
     });
   };
 }
@@ -311,8 +311,10 @@ export const loginRequest = user => {
         if (response.status === 200){
           dispatch(isAuthenticated());
           localStorage.setItem("accessToken", response.data.token);
+          localStorage.setItem("authenticated", 'true');
+          localStorage.setItem("username", user.username);
           dispatch(loginUser(user));
-          dispatch(showMenus(response.data.userInfo))
+          dispatch(showMenus(response.data.userInfo));
         }
       })
       .catch( err => {

@@ -6,6 +6,9 @@ import * as actions from './../../Actions/Actions';
 class Menus extends Component {
   showMenus = menus => {
     let listMenus = null;
+    if (!menus){ 
+      menus = [];
+    }
     listMenus = menus.map((menu, index) => {
         return (
             <NavLink key={index} to={menu.url} onClick={()=>this.props.onChangePage(menu.name)}>
