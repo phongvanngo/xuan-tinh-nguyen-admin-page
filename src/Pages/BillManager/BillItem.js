@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { openPostForm, fetchBillDataRequest } from './../../Actions/Actions';
+import { openPostForm, fetchBillDataRequest, actFetchProductsRequest } from './../../Actions/Actions';
 import api from './../../service/api';
 
 class BillItem extends Component {
+	componentDidMount = () => {
+		this.props.onGetProducts();
+	};
 	render() {
-		var products = this.props.products;
-		console.log(products);
 		var showBoughtProucts = this.props.bill.cart.map((cart, index) => {
 			var x;
+			if (this.props.prouducts === null) return '';
 			for (x in this.props.products) {
 				if (this.props.products[x]._id === cart._id) {
 					break;
@@ -163,22 +165,38 @@ class BillItem extends Component {
 										<div className="col-12">
 											<table>
 												<thead>
+													{/* chi tiet san pham da mua */}
 													<tr>
 														<th style={{ width: '5%' }}>STT</th>
-														<th style={{ width: '45%' }}>Tên sản phẩm</th>
+														<th style={{ width: '35%' }}>Tên sản phẩm</th>
 														<th style={{ width: '20%' }}>Giá</th>
-														<th style={{ width: '15%' }}>Số lượng </th>
-														<th style={{ width: '15%' }}>Thành tiền</th>
+														<th style={{ width: '20%' }}>Số lượng </th>
+														<th style={{ width: '20%' }}>Thành tiền</th>
 													</tr>
 												</thead>
 												<tbody>
 													{showBoughtProucts}
 													<tr>
 														<td style={{ width: '5%' }} />
-														<td style={{ width: '45%' }} />
+														<td style={{ width: '35%' }} />
 														<td style={{ width: '20%' }} />
-														<td style={{ width: '15%' }}>Tổng cộng </td>
-														<td style={{ width: '15%' }}>
+														<td style={{ width: '20%' }}>Phí giao hàng: </td>
+														<td style={{ width: '20%' }}>
+															<h5>
+																<span className="badge badge-warning">
+																	{this.props.bill.shippingCost
+																		.toString()
+																		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
+																</span>
+															</h5>
+														</td>
+													</tr>
+													<tr>
+														<td style={{ width: '5%' }} />
+														<td style={{ width: '35%' }} />
+														<td style={{ width: '20%' }} />
+														<td style={{ width: '20%' }}>Tổng cộng </td>
+														<td style={{ width: '20%' }}>
 															<h5>
 																<span className="badge badge-warning">
 																	{this.props.bill.totalCost
@@ -193,15 +211,6 @@ class BillItem extends Component {
 										</div>
 									</div>
 								</div>
-							</div>
-
-							<div className="modal-footer">
-								<button type="button" className="btn btn-secondary" data-dismiss="modal">
-									Close
-								</button>
-								<button type="button" className="btn btn-primary">
-									Save changes
-								</button>
 							</div>
 						</div>
 					</div>
@@ -224,6 +233,9 @@ const mapDispatchToProps = (dispatch, props) => {
 		},
 		fetchAllBillData: () => {
 			dispatch(fetchBillDataRequest());
+		},
+		onGetProducts: () => {
+			dispatch(actFetchProductsRequest());
 		}
 	};
 };
