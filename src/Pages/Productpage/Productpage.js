@@ -8,8 +8,6 @@ class Productpage extends Component {
   render(){
     return (
       <div className ="container-fluid">
-        <Title/>
-        <hr/>
         <Form />
         {this.props.showForm ? '':<List />}
       </div>

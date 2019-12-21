@@ -36,9 +36,9 @@ class PostForm extends Component {
         + d.getDate().toString() + '/' +
         + d.getMonth().toString() + '/' +
         +d.getFullYear().toString();
-        
+
       var PostData = {
-        
+
         id: this.props.isPostEditing === null ? '' : this.props.isPostEditing._id,
         title: this.state.title,
         author: this.state.author,
@@ -47,7 +47,7 @@ class PostForm extends Component {
       }
 
       //post data --------------
-      
+
       if (this.props.isPostEditing === null) {
         this.props.addNewPost(PostData)
       } else {
@@ -64,101 +64,103 @@ class PostForm extends Component {
   render() {
     const ImgurUploader = ImgurUploaderInit({ clientID: '923fe11172c3b60' });
     return (
-      <div>
+      <div className="row">
+        <div className="col-12">
+          {/* header  --------------------------------*/}
+          <div className="card">
+            <div className="card-header" style={{ backgroundColor: "#fffff0" }}>
 
-        {/* header  --------------------------------*/}
-        <div className="card">
-          <div className="card-header" style={{ backgroundColor: "#fffff0" }}>
+              {this.props.isPostEditing !== null ? 'Chỉnh sửa bài viết' : 'Viết bài mới'}
 
-            {this.props.isPostEditing !== null ? 'Chỉnh sửa bài viết' : 'Viết bài mới'}
+              <button data-toggle="modal" data-target="#cancelArticle" type="button" className="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
 
-            <button data-toggle="modal" data-target="#cancelArticle" type="button" className="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            </div>
+            <div className="card-body">
+              {/* compose the article --------------*/}
+              <form className="col-12">
+                <div className="form-row">
+                  <div className="col-lg-2 col-xl-1 "><label className="form-label" >Tiêu đề:</label></div>
+                  <div className="col-lg-10 col-xl-10">
+                    <input //title--------------------------------
+                      type="text"
+                      className="form-control"
+                      name="title"
+                      onChange={this.onChange}
+                      value={this.state.title} />
+                  </div>
+                </div>
+                <br />
+                <div className="form-row">
+                  <div className="col-lg-2 col-xl-1 "><label className="form-label" >Tác giả:</label></div>
+                  <div className="col-lg-10 col-xl-10">
+                    <input  //author-------------------------------
+                      type="text"
+                      className="form-control"
+                      onChange={this.onChange}
+                      value={this.state.author}
+                      name="author" />
+                  </div>
+                </div>
+                <br />
+                <div className="form-row">
+                  <div className="col-lg-2 col-xl-1 "><label className="form-label" >Nội dung:</label></div>
+                  <div className="col-lg-10 col-xl-10">
+                    <CKEditor //content-------------------------------
+                      editor={ClassicEditor}
+                      data={this.state.content}
+                      config={{
+                        extraPlugins: [ImgurUploader]
+                      }}
+                      onChange={(event, editor) => {
+                        const data = editor.getData();
+                        this.setState({
+                          content: data
+                        })
+                      }}
+                    />
+                  </div>
+                </div>
+              </form>
 
-          </div>
-          <div className="card-body">
+            </div>
             {/* compose the article --------------*/}
-            <form className="col-12">
-              <div className="form-row">
-                <div className="col-lg-2 col-xl-1 "><label className="form-label" >Tiêu đề:</label></div>
-                <div className="col-lg-10 col-xl-10">
-                  <input //title--------------------------------
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    onChange={this.onChange}
-                    value={this.state.title} />
-                </div>
-              </div>
-              <br />
-              <div className="form-row">
-                <div className="col-lg-2 col-xl-1 "><label className="form-label" >Tác giả:</label></div>
-                <div className="col-lg-10 col-xl-10">
-                  <input  //author-------------------------------
-                    type="text"
-                    className="form-control"
-                    onChange={this.onChange}
-                    value={this.state.author}
-                    name="author" />
-                </div>
-              </div>
-              <br />
-              <div className="form-row">
-                <div className="col-lg-2 col-xl-1 "><label className="form-label" >Nội dung:</label></div>
-                <div className="col-lg-10 col-xl-10">
-                  <CKEditor //content-------------------------------
-                    editor={ClassicEditor}
-                    data={this.state.content}
-                    config={{
-                      extraPlugins: [ImgurUploader]
-                    }}
-                    onChange={(event, editor) => {
-                      const data = editor.getData();
-                      this.setState({
-                        content: data
-                      })
-                    }}
-                  />
-                </div>
-              </div>
-            </form>
-
+            <div className="card-footer text-muted">
+              <button
+                style={{ float: 'right' }}
+                type="button"
+                className="btn btn-success btn-sm"
+                onClick={this.onSavePost}
+              >Lưu</button>
+            </div>
           </div>
-          {/* compose the article --------------*/}
-          <div className="card-footer text-muted">
-            <button
-              style={{ float: 'right' }}
-              type="button"
-              className="btn btn-success btn-sm"
-              onClick={this.onSavePost}
-            >Lưu</button>
-          </div>
-        </div>
 
-        {/* modal box alert about cancelling the article */}
-        <div className="modal fade" id="cancelArticle" tabIndex="-1" role="dialog" aria-labelledby="cancelArticle" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="cancelArticle">Bạn có chắc chắn hủy bài viết ?</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={this.props.onClosePostForm}
-                  data-dismiss="modal">
-                  Đồng ý</button>
+          {/* modal box alert about cancelling the article */}
+          <div className="modal fade" id="cancelArticle" tabIndex="-1" role="dialog" aria-labelledby="cancelArticle" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="cancelArticle">Bạn có chắc chắn hủy bài viết ?</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={this.props.onClosePostForm}
+                    data-dismiss="modal">
+                    Đồng ý</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
+
+        )
   }
 }
 

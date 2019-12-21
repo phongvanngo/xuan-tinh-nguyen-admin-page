@@ -25,7 +25,7 @@ class List extends Component {
                 <th style={{ width: '13%' }}>Người dùng</th>
                 <th style={{ width: '10%' }}>Bài viết</th>
                 <th style={{ width: '10%' }}>Feedback</th>
-                <th style={{ width: '5%' }}>Tinh chỉnh</th>
+                <th style={{ width: '5%' }}></th>
               </tr>
             </thead>
             <tbody>

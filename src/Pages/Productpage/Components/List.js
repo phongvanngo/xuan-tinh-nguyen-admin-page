@@ -13,7 +13,7 @@ class List extends Component {
     return (
       <div className="row">
         <div className="col-12">
-          <div className="List ">
+          <div className="List">
             <div className="card">
               <div className="card-header">Danh sách sản phẩm</div>
               <table className="table table-hover ">
@@ -25,7 +25,7 @@ class List extends Component {
                     <th style={{ width: '10%' }}>Giá</th>
                     <th style={{ width: '13%' }}>Ngày sản xuất</th>
                     <th style={{ width: '12%' }}>Hạn sử dụng</th>
-                    <th style={{ width: '10%' }}>Tinh chỉnh</th>
+                    <th style={{ width: '10%' }}></th>
                   </tr>
                 </thead>
                 <tbody>

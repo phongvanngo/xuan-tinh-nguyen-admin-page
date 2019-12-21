@@ -8,8 +8,6 @@ class Accountpage extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Title />
-        <hr />
         <Form />
         <br />
         <div className="row">

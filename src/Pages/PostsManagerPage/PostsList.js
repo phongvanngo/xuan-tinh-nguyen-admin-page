@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { openPostForm, fetchPostsDataRequest } from '../../Actions/Actions'
 import PostItem from './PostItem'
@@ -20,29 +20,38 @@ class PostsList extends Component {
         />
       )
     })
-    
+
     return (
-      <div>
-        <div className="card">
-          <div className="card-header">Danh sách bài viết</div>
-          <div className="card-body">
-            <table className="table border">
-              <tbody>
-                {showPostsList}
-              </tbody>
-            </table>
-          </div>
-          <div className="card-footer text-muted">
+      <Fragment>
+        <div className="row" style={{ marginBottom: 20 }}>
+          <div className="col-10"></div>
+          <div className="col-xs-2">
             <button
-              style={{ float: 'right' }}
+              style={{ width: '150px' }}
               type="button"
               onClick={this.props.onOpenPostForm}
-              className="btn btn-success btn-sm">
-              Bài mới
+              className="btn btn-info ">
+              Thêm bài viết
               </button>
           </div>
         </div>
-      </div>
+
+        <div className="row">
+          <div className="col-12">
+            <div className="card">
+              <div className="card-header">Danh sách bài viết</div>
+                <table className="table table-hover">
+                  <tbody>
+                    {showPostsList}
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+
+
+
     )
   }
 }
