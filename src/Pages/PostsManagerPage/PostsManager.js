@@ -8,7 +8,11 @@ class PostManager extends Component {
   render() {
     return (
       <div className="container-fluid">
-        {this.props.isDisplayPostForm ? <PostForm /> : <PostsList />}
+        <div className="row">
+          <div className="col-12">
+          {this.props.isDisplayPostForm ? <PostForm /> : <PostsList />}
+          </div>
+        </div>
       </div>
     )
   }

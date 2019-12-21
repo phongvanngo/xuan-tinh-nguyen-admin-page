@@ -24,14 +24,14 @@ class PostItem extends Component {
           <button
             onClick={this.button_editPost}
             style={{ marginRight: 5 }}
-            className="btn btn-outline-info btn-sm">
+            className="btn btn-warning btn-sm">
             <i className="fas fa-pen"></i>
           </button>
           {/* delete button------------------------ */}
           <button
             data-toggle="modal"
             data-target={'#' + this.props.post._id}
-            className="btn btn-outline-danger btn-sm">
+            className="btn btn-danger btn-sm">
             <i className="fas fa-trash "></i>
           </button>
           {/* modalBox Alert --------------------------------------------------*/}

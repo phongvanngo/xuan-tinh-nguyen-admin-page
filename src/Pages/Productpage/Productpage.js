@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Title from './Components/Title';
 import List from './Components/List';
 import Form from './Components/Form';
+import { connect } from 'react-redux';
 
 class Productpage extends Component {
   render(){
@@ -10,11 +11,19 @@ class Productpage extends Component {
         <Title/>
         <hr/>
         <Form />
-        <br/>
-        <List />
+        {this.props.showForm ? '':<List />}
       </div>
     );
   }
 }
 
-export default Productpage;
+const mapStateToProps = state => {
+  return {
+    showForm: state.isDisplayForm,
+    products: state.products
+  }
+}
+
+
+
+export default connect(mapStateToProps, null)(Productpage);

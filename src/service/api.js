@@ -3,6 +3,7 @@ import { get, save } from "./localStorage";
 
 const instance = axios.create({
   baseURL: "http://ttcong2301.southeastasia.cloudapp.azure.com:3000"
+  //baseURL: "http://localhost:3000"
 });
 // ADD Token into Headers
 instance.interceptors.request.use(

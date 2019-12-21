@@ -6,7 +6,8 @@ var initialState = {
     mota: '',
     gia: '',
     nsx: '',
-    hsd: ''
+    hsd: '',
+    img:''
 };
 
 var todoApp = (state = initialState, action) => {

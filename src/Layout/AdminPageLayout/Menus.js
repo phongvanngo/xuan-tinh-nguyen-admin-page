@@ -11,7 +11,7 @@ class Menus extends Component {
     }
     listMenus = menus.map((menu, index) => {
         return (
-            <NavLink key={index} to={menu.url} onClick={()=>this.props.onChangePage(menu.name)}>
+            <NavLink activeClassName="currentLink" key={index} to={menu.url} onClick={()=>this.props.onChangePage(menu.name)}>
               <li>
                 <a href="#/">{menu.name}</a>
               </li>

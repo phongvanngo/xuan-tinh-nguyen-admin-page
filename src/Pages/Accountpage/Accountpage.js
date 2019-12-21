@@ -5,14 +5,18 @@ import List from './Components/List';
 
 
 class Accountpage extends Component {
-  render(){
+  render() {
     return (
-      <div className ="container-fluid">
-        <Title/>
-        <hr/>
+      <div className="container-fluid">
+        <Title />
+        <hr />
         <Form />
-        <br/>
-        <List />
+        <br />
+        <div className="row">
+          <div className="col-12">
+            <List />
+          </div>
+        </div>
       </div>
     );
   }

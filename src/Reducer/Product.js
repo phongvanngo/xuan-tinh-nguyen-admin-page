@@ -11,7 +11,8 @@ var todoApp = (state = initialState, action) => {
               mota: action.product.mota,
               gia: action.product.gia,
               ngaysx: action.product.ngaysx,
-              hansd: action.product.hansd
+              hansd: action.product.hansd,
+              img:action.product.img
             });
             return [...state];   
         case types.DEL_PRODUCT:
@@ -30,6 +31,7 @@ var todoApp = (state = initialState, action) => {
               item.gia = action.product.gia;
               item.ngaysx = action.product.ngaysx;
               item.hansd = action.product.hansd;
+              item.img=action.product.img;
             }
             return item;
         });

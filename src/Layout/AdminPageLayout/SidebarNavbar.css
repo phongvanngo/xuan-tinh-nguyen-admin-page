@@ -8,18 +8,18 @@
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  src: 
-  local('Roboto italic'),
-  url('./../../font/RobotoTTF/Roboto-ThinItalic.ttf') format('truetype'),
+  src:
+    local('Roboto italic'),
+    url('./../../font/RobotoTTF/Roboto-ThinItalic.ttf') format('truetype'),
 }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: 
-  local('Roboto normal'),
-  url('./../../font/RobotoTTF/Roboto-Regular.ttf') format('truetype'),
+  src:
+    local('Roboto normal'),
+    url('./../../font/RobotoTTF/Roboto-Regular.ttf') format('truetype'),
 }
 
 html {
@@ -100,6 +100,11 @@ a:focus {
   top: 0; */
 }
 
+.currentLink {
+  color: yellow;
+  /* background: #fff; */
+}
+
 .sidebarDeactive {
   position: sticky;
   margin-left: -250px;
@@ -108,6 +113,7 @@ a:focus {
 .sidebarActive {
   position: sticky;
   top: 0;
+
 }
 
 #sidebar.active {
@@ -127,16 +133,16 @@ a:focus {
 }
 
 #sidebar ul p {
-  color:#fff;
-  padding:10px;
-border-bottom-left-radius: 1%;
-border-bottom:#fff;
-border-style: solid;
-border-width: thin;
-border-left: none;
-border-right: none;
-border-top: none;
-margin:0;
+  color: #fff;
+  padding: 10px;
+  border-bottom-left-radius: 1%;
+  border-bottom: #fff;
+  border-style: solid;
+  border-width: thin;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 0;
 }
 
 #sidebar ul li a {
@@ -144,8 +150,9 @@ margin:0;
   font-size: 1.1em;
   display: block;
 }
+
 #sidebar ul li {
-/*   */
+  /*   */
 }
 
 
@@ -179,7 +186,7 @@ ul ul a {
 }
 
 ul.CTAs {
-  
+
   padding: 0px 0px 0px 0px;
 }
 
@@ -188,8 +195,8 @@ ul.CTAs a {
   font-size: 0.9em !important;
   display: block;
   border-radius: 5px;
- 
-  color:black
+
+  color: black
 }
 
 a.download {
@@ -232,3 +239,6 @@ a.article:hover {
   }
 }
 
+.sidebar-title {
+  padding:10px;
+}

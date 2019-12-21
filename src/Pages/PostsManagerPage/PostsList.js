@@ -6,13 +6,11 @@ import PostItem from './PostItem'
 class PostsList extends Component {
 
   componentDidMount() {
-
     this.props.fetchAllPosts();
   }
 
   render() {
 
-    
     var showPostsList = this.props.posts.map((ele, index) => {
       return (
         <PostItem
@@ -22,6 +20,7 @@ class PostsList extends Component {
         />
       )
     })
+    
     return (
       <div>
         <div className="card">

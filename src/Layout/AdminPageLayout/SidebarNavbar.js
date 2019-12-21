@@ -38,9 +38,13 @@ class SidebarNavbar extends Component {
     return (
       <div >
         <nav id="sidebar" className={this.state.isDisplaySidebar ? "sidebarActive" : "sidebarDeactive"} >
+        <div className="sidebar-title">
+            <h5>Xuân tình nguyện 2020</h5>
+            <h8>Admin page</h8>
+          </div>
+          
           <div className="sidebar-header">
-            <h4>Xuân tình nguyện 2019</h4>
-            <br/>
+
             <h4 style ={{color:"yellow"}} ><i style ={{marginRight:"10px"}}class="fas fa-user-circle"> </i>{localStorage.getItem("username")}</h4>
             <ul class="list-unstyled CTAs">
             <NavLink to="/feedback" onClick={() => { if (window.confirm('Bạn có muốn đăng xuất?')) this.logOut() }} >

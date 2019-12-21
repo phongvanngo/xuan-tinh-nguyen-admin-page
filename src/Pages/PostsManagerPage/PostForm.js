@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import ImgurUploaderInit from 'ckeditor5-imgur-uploader';
 import { closePostForm, addPostRequest, updatePostRequest, set_isPostEditing_null } from '../../Actions/Actions'
 
@@ -88,7 +89,6 @@ class PostForm extends Component {
                     name="title"
                     onChange={this.onChange}
                     value={this.state.title} />
-
                 </div>
               </div>
               <br />
