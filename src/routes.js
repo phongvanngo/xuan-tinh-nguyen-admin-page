@@ -8,6 +8,7 @@ import Productpage from './Pages/Productpage/Productpage';
 import Login from './Pages/Loginpage/Login';
 import SidebarNavbar from './Layout/AdminPageLayout/SidebarNavbar';
 import PostManager from './Pages/PostsManagerPage/PostsManager';
+import BillManager from './Pages/BillManager/BillManager'
 
 class Routes extends Component {
     render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
           <RouteWithLayout component={Accountpage} exact layout={SidebarNavbar} path="/account" />
           <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/product" />
           <RouteWithLayout component={PostManager} exact layout={SidebarNavbar} path="/post" />
+          <RouteWithLayout component={BillManager} exact layout={SidebarNavbar} path="/bill" />
           {/* <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/feedback" /> */}
           <Route path="/login" exact component={Login} />
           <RouteWithLayout component={NotFoundpage} exact layout={SidebarNavbar} path="/not-found" />

@@ -1,5 +1,5 @@
 
-//ngo van phong -------------------------------------------
+//post manager -------------------------------------------
 export const OPEN_POST_FORM = "OPEN_POST_FORM";
 export const CLOSE_POST_FORM = "CLOSE_POST_FORM";
 export const SAVE_POST = "SAVE_POST";
@@ -11,8 +11,10 @@ export const SET_NULL ="SET_NULL"
 export const DELETE_POST ="DELETE_POST"
 export const CHANGE_PAGE="CHANGE_PAGE"
 
+//bill manager ---------------------------------------
+export const FETCH_BILL_DATA = "FETCH_BILL_DATA"
 
-//hoang vien duy--------------------------------------
+//acount and product manager--------------------------------------
 export const ADD_USER = 'ADD_USER';
 export const DEL_USER = 'DEL_USER';
 export const GET_USER = 'GET_USER';

@@ -18,7 +18,6 @@ class Productpage extends Component {
 const mapStateToProps = state => {
   return {
     showForm: state.isDisplayForm,
-    products: state.products
   }
 }
 
