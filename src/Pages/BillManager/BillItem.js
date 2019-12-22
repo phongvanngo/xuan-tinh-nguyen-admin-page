@@ -1,41 +1,50 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { openPostForm, fetchBillDataRequest, actFetchProductsRequest } from './../../Actions/Actions';
-import api from './../../service/api';
+import {
+	openPostForm,
+	fetchBillDataRequest,
+	actFetchProductsRequest,
+	deleteBillRequest
+} from './../../Actions/Actions';
 
 class BillItem extends Component {
-	componentDidMount = () => {
-		this.props.onGetProducts();
-	};
 	render() {
 		var showBoughtProucts = this.props.bill.cart.map((cart, index) => {
 			var x;
 			if (this.props.prouducts === null) return '';
 			for (x in this.props.products) {
 				if (this.props.products[x]._id === cart._id) {
-					break;
+					console.log(this.props.products[x]._id, ' ', cart._id);
+					return (
+						<tr>
+							<td>{index + 1}</td>
+							<td>{this.props.products[x].tensp}</td>
+							<td>{cart.cost}</td>
+							<td>{cart.quantity}</td>
+							<td>{(cart.cost * cart.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
+						</tr>
+					);
 				}
 			}
-			return (
-				<tr>
-					<td>{index + 1}</td>
-					<td>{this.props.products[x].tensp}</td>
-					<td>{this.props.products[x].gia.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
-					<td>{cart.quantity}</td>
-					<td>
-						{(this.props.products[x].gia * cart.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
-					</td>
-				</tr>
-			);
 		});
 		return (
 			<Fragment>
 				<tr>
 					<td>{this.props.index}</td>
-					<td>{this.props.bill.customerInfo.name}</td>
-					<td>{this.props.bill.createdAt}</td>
-					<td>{this.props.bill.customerInfo.address}</td>
-					<td>{this.props.bill.totalCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
+					<td>
+						<span className="badge badge-light">{this.props.bill.customerInfo.name}</span>
+					</td>
+					<td>
+						<span className="badge badge-light">{this.props.bill.createdAt}</span>
+					</td>
+					<td>
+						<span className="badge badge-light">{this.props.bill.customerInfo.address}</span>
+					</td>
+					<td>
+						<span className="badge badge-light">
+							{this.props.bill.totalCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
+						</span>
+					</td>
 					<td
 						style={{
 							display: 'flex',
@@ -54,12 +63,21 @@ class BillItem extends Component {
 					</td>
 					<td>
 						<button
+							style={{ marginRight: 5 }}
 							type="button"
 							className="btn btn-info btn-sm"
 							data-toggle="modal"
 							data-target={'#' + this.props.bill._id}
 						>
-							Chi tiết
+							<i className="fas fa-pen" />
+						</button>
+						<button
+							type="button"
+							className="btn btn-danger btn-sm"
+							data-target={'#delete' + this.props.bill._id}
+							data-toggle="modal"
+						>
+							<i className="fas fa-trash" />
 						</button>
 					</td>
 				</tr>
@@ -183,7 +201,7 @@ class BillItem extends Component {
 														<td style={{ width: '20%' }}>Phí giao hàng: </td>
 														<td style={{ width: '20%' }}>
 															<h5>
-																<span className="badge badge-warning">
+																<span className="badge badge-light">
 																	{this.props.bill.shippingCost
 																		.toString()
 																		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
@@ -215,6 +233,39 @@ class BillItem extends Component {
 						</div>
 					</div>
 				</div>
+				{/* modalBox Alert --------------------------------------------------*/}
+				<div
+					className="modal fade"
+					id={'delete' + this.props.bill._id}
+					tabIndex="-1"
+					role="dialog"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true"
+				>
+					<div className="modal-dialog" role="document">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title" id="exampleModalLabel">
+									Bạn có chắc chắn xóa bài viết
+								</h5>
+								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div className="modal-footer">
+								<button
+									type="button"
+									className="btn btn-primary"
+									data-dismiss="modal"
+									onClick={this.props.onDeleteBill}
+								>
+									Đồng ý
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				{/* modalBox Alert ------------------------------------------------------*/}
 			</Fragment>
 		);
 	}
@@ -236,6 +287,9 @@ const mapDispatchToProps = (dispatch, props) => {
 		},
 		onGetProducts: () => {
 			dispatch(actFetchProductsRequest());
+		},
+		onDeleteBill: () => {
+			dispatch(deleteBillRequest(props.bill._id));
 		}
 	};
 };

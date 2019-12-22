@@ -17,13 +17,13 @@ class PostItem extends Component {
   render() {
     return (
       <tr>
-        <td style={{ width: 5 }}>{this.props.post.index}</td>
-        <td style={{ width: 600 }}>{this.props.post.title}</td>
-        <td style={{ width: 100, float: "right", borderTopWidth: 0 }}>
+        <td style={{ width: '3%' }}>{this.props.index}</td>
+        <td style={{ width:  '87%'}}>{this.props.post.title}</td>
+        <td style={{ width: '10%'}}>
           {/* edit button------------------------ */}
           <button
+          style={{marginRight:5}}
             onClick={this.button_editPost}
-            style={{ marginRight: 5 }}
             className="btn btn-warning btn-sm">
             <i className="fas fa-pen"></i>
           </button>

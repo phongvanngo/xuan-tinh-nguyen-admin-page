@@ -33,7 +33,8 @@ class SidebarNavbar extends Component {
 	};
 
 	componentDidMount = () => {
-		this.props.onGetProducts();
+    this.props.onGetProducts();
+    this.props.onGetBillData();
 	};
 
 	componentWillReceiveProps = () => {
@@ -115,6 +116,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onGetProducts: () => {
 			dispatch(actions.actFetchProductsRequest());
+		},
+		onGetBillData: () => {
+			dispatch(actions.fetchBillDataRequest());
 		}
 	};
 };

@@ -57,7 +57,7 @@ export const updatePost = (post) => {
 
 export const updatePostRequest = (postData) => {
   var postDataChange = [
-    {
+    { 
       prop: 'title',
       value: postData.title
     },
@@ -370,5 +370,23 @@ export const fetchBillData = (bill) => {
     
     type: Types.FETCH_BILL_DATA,
     bill
+  }
+}
+
+export const deleteBillRequest = (id) => {
+  return (dispatch) => {
+    return api.delete(`checkout/${id}`).then(res => {
+      dispatch(deleteBill(id))
+    }).catch(error => {
+      console.log(error);
+      alert('lỗi kết nối')
+    });
+  }
+}
+
+export const deleteBill = (id) => {
+  return {
+    type: Types.DELETE_BILL,
+    id
   }
 }

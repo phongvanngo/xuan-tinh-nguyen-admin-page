@@ -12,7 +12,7 @@ import loginUser from './login';
 import currentPage from './CurrentPage';
 import menus from './menus';
 import bill from './bill'
-
+ 
 const todoApp = combineReducers({
   posts,
   isDisplayPostForm,

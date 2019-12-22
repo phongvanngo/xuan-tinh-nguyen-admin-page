@@ -4,15 +4,11 @@ import {
 	openPostForm,
 	fetchBillDataRequest,
 	actFetchProductsRequest,
-	editProductRequest,
-	delProductRequest
+
 } from '../../Actions/Actions';
 import BillItem from './BillItem';
 
 class BillList extends Component {
-	componentDidMount() {
-		this.props.onGetProducts();
-	}
 
 	render() {
 		var showBillslist = this.props.bills.map((bill, index) => {
@@ -33,14 +29,14 @@ class BillList extends Component {
 										</th>
 										<th style={{ width: '17%' }}>Tên khách hàng</th>
 										<th style={{ width: '15%' }}>Ngày đặt hàng</th>
-										<th className="text-wrap" style={{ width: '25%' }}>
+										<th className="text-wrap" style={{ width: '24%' }}>
 											Địa chỉ
 										</th>
-										<th className="text-wrap" style={{ width: '10%' }}>
+										<th className="text-wrap" style={{ width: '7%' }}>
 											Số tiền
 										</th>
 										<th style={{ width: '9%' }}>Xác nhận</th>
-										<th style={{ width: '5%' }} />
+										<th style={{ width: '9%' }} />
 									</tr>
 								</thead>
 								<tbody>{showBillslist}</tbody>

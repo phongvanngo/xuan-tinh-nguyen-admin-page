@@ -10,9 +10,10 @@ export const EDIT_POST = "EDIT_POST"
 export const SET_NULL ="SET_NULL"
 export const DELETE_POST ="DELETE_POST"
 export const CHANGE_PAGE="CHANGE_PAGE"
-
-//bill manager ---------------------------------------
+ 
+//bill manager ---------------------------------------------------
 export const FETCH_BILL_DATA = "FETCH_BILL_DATA"
+export const DELETE_BILL = "DELETE_BILL"
 
 //acount and product manager--------------------------------------
 export const ADD_USER = 'ADD_USER';
@@ -32,3 +33,5 @@ export const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const SHOW_MENUS = 'SHOW_MENUS';
+
+//team manager-----------------------------------------------------

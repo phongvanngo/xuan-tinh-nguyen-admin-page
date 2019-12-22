@@ -23,7 +23,7 @@ var posts = (state = initialState, action) => {
           state[x].author = action.post.author;
           state[x].content = action.post.content;
           break
-        }
+        } 
       }
       return [...state];
     case Types.DELETE_POST:
