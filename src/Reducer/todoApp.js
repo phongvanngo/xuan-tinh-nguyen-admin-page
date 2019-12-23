@@ -22,6 +22,7 @@ import isMemberFormViewing from './TeamManagerReducer/isMemberFormViewing';
 import membersListCurrent from './TeamManagerReducer/MembersListCurrent';
 import teamNameCurrent from './TeamManagerReducer/TeamNameCurrent';
 import isMemberEditing from './TeamManagerReducer/isMemberEditing';
+import feedback from './feedback';
 const todoApp = combineReducers({
 	posts,
 	isDisplayPostForm,
@@ -44,7 +45,8 @@ const todoApp = combineReducers({
 	teams,
 	membersListCurrent,
 	teamNameCurrent,
-	isMemberEditing
+  isMemberEditing,
+  feedback
 });
 
 export default todoApp;

@@ -10,6 +10,7 @@ import SidebarNavbar from './Layout/AdminPageLayout/SidebarNavbar';
 import PostManager from './Pages/PostsManagerPage/PostsManager';
 import BillManager from './Pages/BillManager/BillManager'
 import TeamManager from './Pages/TeamManagerPage/TeamManager'
+import Feedback from './Pages/FeedbackPage/FeedbackMananger'
 
 class Routes extends Component {
     render() {
@@ -22,6 +23,7 @@ class Routes extends Component {
           <RouteWithLayout component={PostManager} exact layout={SidebarNavbar} path="/post" />
           <RouteWithLayout component={BillManager} exact layout={SidebarNavbar} path="/bill" />
           <RouteWithLayout component={TeamManager} exact layout={SidebarNavbar} path="/team" />
+          <RouteWithLayout component={Feedback} exact layout={SidebarNavbar} path="/feedback" />
           {/* <RouteWithLayout component={Productpage} exact layout={SidebarNavbar} path="/feedback" /> */}
           <Route path="/login" exact component={Login} />
           <RouteWithLayout component={NotFoundpage} exact layout={SidebarNavbar} path="/not-found" />
