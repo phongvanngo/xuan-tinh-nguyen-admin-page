@@ -5,7 +5,7 @@ export const CLOSE_POST_FORM = "CLOSE_POST_FORM";
 export const SAVE_POST = "SAVE_POST";
 export const ADD_POST = "ADD_POST";
 export const UPDATE_POST = "UPDATE_POST"
-export const FETCH_POSTS_DATA = "FETCH_POSTS_DATA"
+export const FETCH_POSTS_DATA = "FETCH_POSTS_DATA" 
 export const EDIT_POST = "EDIT_POST"
 export const SET_NULL ="SET_NULL"
 export const DELETE_POST ="DELETE_POST"
@@ -35,3 +35,22 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const SHOW_MENUS = 'SHOW_MENUS';
 
 //team manager-----------------------------------------------------
+export const OPEN_TEAMS_LIST = 'OPEN_TEAMS_LIST';
+export const CLOSE_TEAMS_LIST = 'CLOSE_TEAMS_LIST';
+export const OPEN_MEMBERS_LIST = 'OPEN_MEMBERS_LIST';
+export const CLOSE_MEMBERS_LIST = 'CLOSE_MEMBERS_LIST';
+export const OPEN_MEMBER_FORM = 'OPEN_MEMBER_FORM';
+export const CLOSE_MEMBER_FORM = 'CLOSE_MEMBER_FORM';
+export const FETCH_MEMBERS = 'FETCH_MEMBERS';
+export const FETCH_TEAMS = 'FETCH_TEAMS';
+export const ADD_MEMBER = 'ADD_MEMBER';
+export const DELETE_MEMBER = 'DELETE_MEMBER';
+export const UPDATE_MEMBER = 'UPDATE_MEMBER';
+export const ADD_TEAM = 'ADD_TEAM';
+export const DELETE_TEAM = 'DELETE_TEAM';
+export const ADD_MEMBERS_CURRENT = 'ADD_MEMBERS_CURRENT';
+export const REMOVE_MEMBERS_CURRENT = 'REMOVE_MEMBERS_CURRENT';
+export const CHANGE_TEAM_NAME_CURRENT = 'CHANGE_TEAM_NAME_CURRENT';
+
+
+

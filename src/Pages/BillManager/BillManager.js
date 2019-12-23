@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { openPostForm, fetchBillDataRequest } from './../../Actions/Actions'
+import { openPostForm, fetchBillDataRequest,actFetchProductsRequest } from './../../Actions/Actions'
 import BillList from './BillsList'
 
 
 class PostManager extends Component {
-
-  componentDidMount() {
+	componentDidMount = () => {
     this.props.fetchAllBillData();
-  }
+    this.props.onGetProducts();
+	};
+
   render() {
     return (
       <div className="container-fluid">
@@ -31,6 +32,9 @@ const mapDispatchToProps = (dispatch, props) => {
     onOpenPostForm: () => {
       dispatch(openPostForm())
     },
+    onGetProducts: () => {
+			dispatch(actFetchProductsRequest());
+		},
     fetchAllBillData: () => {
       dispatch(fetchBillDataRequest())
     },

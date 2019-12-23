@@ -32,15 +32,6 @@ class SidebarNavbar extends Component {
 		});
 	};
 
-	componentDidMount = () => {
-    this.props.onGetProducts();
-    this.props.onGetBillData();
-	};
-
-	componentWillReceiveProps = () => {
-		this.props.onGetProducts();
-	};
-
 	render() {
 		const { children } = this.props;
 		return (

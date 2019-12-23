@@ -1,7 +1,7 @@
 import * as Types from '../Constants/ActionTypes'
 var initialState = [];
 var x;
-var posts = (state = initialState, action) => {
+var bill = (state = initialState, action) => {
   switch (action.type) {
     case Types.FETCH_BILL_DATA:
       state = action.bill;  
@@ -18,4 +18,4 @@ var posts = (state = initialState, action) => {
   }
 }
 
-export default posts;
+export default bill;
