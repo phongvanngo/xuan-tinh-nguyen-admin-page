@@ -1,19 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import {
-	deleteMemberRequest,
-	editMember,
-	openMemberForm,
-
-} from './../../../Actions/TeamManagerAction';
+import { deleteMemberRequest, editMember, openMemberForm } from './../../../Actions/TeamManagerAction';
 class MemberItem extends Component {
 	render() {
 		return (
 			<Fragment>
 				<tr>
 					<td>{this.props.index}</td>
-					<td>{this.props.member.name}</td>
-					<td>{this.props.team}</td>
+					<td>
+						<span className="badge badge-light">{this.props.member.name}</span>
+					</td>
+					<td>
+						<span className="badge badge-light">{this.props.team}</span>
+					</td>
 					<td>
 						{/* edit button------------------------ */}
 						<button
@@ -72,8 +71,7 @@ class MemberItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return {
-	};
+	return {};
 };
 const mapDispatchToProps = (dispatch, props) => {
 	return {

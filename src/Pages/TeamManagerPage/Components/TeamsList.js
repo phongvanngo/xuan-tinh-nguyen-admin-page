@@ -16,8 +16,8 @@ class TeamsList extends Component {
 		this.setState({
 			[name]: value
 		});
-  };
-  componentDidMount() {
+	};
+	componentDidMount() {
 		window.scroll(0, 0);
 	}
 
@@ -28,17 +28,8 @@ class TeamsList extends Component {
 		return (
 			<Fragment>
 				<div className="row" style={{ marginBottom: 20 }}>
-					<div className="col-8" />
-					<div className="col-2">
-						<button
-							style={{ width: '150px' }}
-							onClick={this.props.exit}
-							type="button"
-							className="btn btn-danger"
-						>
-							Quay lại
-						</button>
-					</div>
+					<div className="col-10" />
+				
 					<div className="col-xs-2">
 						<button
 							data-toggle="modal"
@@ -54,7 +45,12 @@ class TeamsList extends Component {
 				<div className="row">
 					<div className="col-12">
 						<div class="card">
-							<div className="card-header">Danh sách đội hình</div>
+							<div className="card-header">
+								Danh sách đội hình
+								<button onClick={this.props.exit} type="button" className="close" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
 							<table class="table table-hover">
 								<thead>
 									<tr>

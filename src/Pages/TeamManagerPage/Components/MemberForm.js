@@ -140,7 +140,8 @@ class TeamsList extends Component {
 												toolbar: [ 'ImageUpload' ]
 											}}
 											onChange={(event, editor) => {
-												const data = editor.getData();
+                        const data = editor.getData();
+                        console.log(data)
 												this.setState({
 													img: data
 												});

@@ -18,24 +18,10 @@ class FeedbacksList extends Component {
 
 		return (
 			<Fragment>
-				<div className="row" style={{ marginBottom: 20 }}>
-					<div className="col-10" />
-					<div className="col-xs-2">
-						<button
-							style={{ width: '150px' }}
-							type="button"
-							onClick={this.props.onOpenPostForm}
-							className="btn btn-info "
-						>
-							Thêm bài viết
-						</button>
-					</div>
-				</div>
-
 				<div className="row">
 					<div className="col-12">
 						<div className="card">
-							<div className="card-header">Hộp thư góp ý</div>
+							<div className="card-header">Tất cả phản hồi </div>
 							<table className="table table-hover">
 								<thead>
 									<tr>

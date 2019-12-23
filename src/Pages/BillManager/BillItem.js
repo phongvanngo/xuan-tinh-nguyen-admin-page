@@ -19,7 +19,7 @@ class BillItem extends Component {
 						<tr>
 							<td>{index + 1}</td>
 							<td>{this.props.products[x].tensp}</td>
-							<td>{cart.cost}</td>
+							<td>{cart.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
 							<td>{cart.quantity}</td>
 							<td>{(cart.cost * cart.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
 						</tr>
@@ -65,11 +65,11 @@ class BillItem extends Component {
 						<button
 							style={{ marginRight: 5 }}
 							type="button"
-							className="btn btn-info btn-sm"
+							className="btn btn-warning btn-sm"
 							data-toggle="modal"
 							data-target={'#' + this.props.bill._id}
 						>
-							<i className="fas fa-pen" />
+							<i class="fas fa-info-circle" />
 						</button>
 						<button
 							type="button"
