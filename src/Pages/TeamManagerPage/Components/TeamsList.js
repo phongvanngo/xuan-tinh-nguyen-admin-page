@@ -16,7 +16,10 @@ class TeamsList extends Component {
 		this.setState({
 			[name]: value
 		});
-	};
+  };
+  componentDidMount() {
+		window.scroll(0, 0);
+	}
 
 	render() {
 		var showTeamsList = this.props.teams.map((ele, index) => {

@@ -19,8 +19,9 @@ import membersList from './TeamManagerReducer/MemberList';
 import isTeamsListViewing from './TeamManagerReducer/isTeamsListViewing';
 import isMembersListViewing from './TeamManagerReducer/isMembersListViewing';
 import isMemberFormViewing from './TeamManagerReducer/isMemberFormViewing';
-import membersListCurrent from './TeamManagerReducer/MembersListCurrent'
-import teamNameCurrent from './TeamManagerReducer/TeamNameCurrent'
+import membersListCurrent from './TeamManagerReducer/MembersListCurrent';
+import teamNameCurrent from './TeamManagerReducer/TeamNameCurrent';
+import isMemberEditing from './TeamManagerReducer/isMemberEditing';
 const todoApp = combineReducers({
 	posts,
 	isDisplayPostForm,
@@ -35,14 +36,15 @@ const todoApp = combineReducers({
 	currentPage,
 	menus,
 	bill,
-  members,
-  membersList,
-  isMembersListViewing,
-  isTeamsListViewing,
-  isMemberFormViewing,
-  teams,
-  membersListCurrent,
-  teamNameCurrent
+	members,
+	membersList,
+	isMembersListViewing,
+	isTeamsListViewing,
+	isMemberFormViewing,
+	teams,
+	membersListCurrent,
+	teamNameCurrent,
+	isMemberEditing
 });
 
 export default todoApp;

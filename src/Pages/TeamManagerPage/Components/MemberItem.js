@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { closeMembersList, deleteMemberRequest } from './../../../Actions/TeamManagerAction';
+import {
+	deleteMemberRequest,
+	editMember,
+	openMemberForm,
 
+} from './../../../Actions/TeamManagerAction';
 class MemberItem extends Component {
 	render() {
 		return (
@@ -14,7 +18,7 @@ class MemberItem extends Component {
 						{/* edit button------------------------ */}
 						<button
 							style={{ marginRight: 5 }}
-							onClick={this.button_editPost}
+							onClick={this.props.onEditMember}
 							className="btn btn-warning btn-sm"
 						>
 							<i className="fas fa-pen" />
@@ -69,14 +73,16 @@ class MemberItem extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		membersListCurrent: state.membersListCurrent,
-		teamNameCurrent: state.teamNameCurrent
 	};
 };
 const mapDispatchToProps = (dispatch, props) => {
 	return {
 		onDeleteMember: () => {
 			dispatch(deleteMemberRequest(props.member._id));
+		},
+		onEditMember: () => {
+			dispatch(editMember(props.member));
+			dispatch(openMemberForm());
 		}
 	};
 };

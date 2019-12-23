@@ -83,7 +83,7 @@ export const addMember = (member, id) => {
 export const addMemberRequest = (member) => {
 	return (dispatch) => {
 		return api
-			.post('post', member)
+			.post('member', member)
 			.then((res) => {
 				dispatch(addMember(member, res.data.info._id));
 			})
@@ -233,5 +233,17 @@ export const getMembersInTeam = (id, name, members) => {
 					alert('lỗi kết nối');
 				});
 		}
+	};
+};
+
+export const editMember = (member) => {
+	return {
+		type: Types.EDIT_MEMBER,
+		member
+	};
+};
+export const setNullMemberForm = () => {
+	return {
+		type: Types.SET_EDIT_MEMBER_NULL
 	};
 };

@@ -4,6 +4,7 @@ import { fetchMembersDataRequest, fetchTeamsDataRequest } from './../../Actions/
 import TeamsList from './Components/TeamsList';
 import MembersList from './Components/MembersList';
 import TeamManagerControl from './TeamManagerControl';
+import MemberForm from './Components/MemberForm';
 
 class TeamManager extends Component {
 	componentDidMount() {
